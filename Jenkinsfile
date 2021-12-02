@@ -6,7 +6,7 @@ pipeline {
                 git branch:'master', url: 'https://github.com/nelsonyeo27/ICT3103LabTest.git'
             } 
         }
-        stage('Integration Test'){
+        /*stage('Integration Test'){
             parallel {
                 stage('Deploy') {
                 agent any
@@ -35,7 +35,7 @@ pipeline {
 
                 }
             }
-        }
+        }*/
         stage('Code Quality Check via SonarQube') { 
            steps { 
                script { 
