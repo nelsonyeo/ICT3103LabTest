@@ -6,8 +6,16 @@ pipeline {
                 git branch:'master', url: 'https://github.com/nelsonyeo27/ICT3103LabTest.git'
             } 
         }
-        stage('Integration Test'){
-            parallel {
+        /*stage('Integration Test'){
+            parrallel {
+                stage('Deploy') {
+                agent any
+                steps {
+                    sh '.jenkins/scripts/deploy.sh'
+                    input message: 'Finished using the website? (Click "Proceed" to continue)'
+                    sh './jenkins/scripts/kill.sh'
+                    }
+                }
                 stage('Headless Browswer Test'){
                     agent{
                         docker {
@@ -27,7 +35,7 @@ pipeline {
 
                 }
             }
-        }
+        } */
         stage('Code Quality Check via SonarQube') { 
            steps { 
                script { 
