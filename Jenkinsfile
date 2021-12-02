@@ -8,14 +8,6 @@ pipeline {
         }
         stage('Integration Test'){
             parallel {
-                stage('Deploy') {
-                agent any
-                steps {
-                    sh '.jenkins/scripts/deploy.sh'
-                    input message: 'Finished using the website? (Click "Proceed" to continue)'
-                    sh './jenkins/scripts/kill.sh'
-                    }
-                }
                 stage('Headless Browswer Test'){
                     agent{
                         docker {
