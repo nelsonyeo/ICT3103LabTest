@@ -7,7 +7,7 @@ pipeline {
             } 
         }
         stage('Integration Test'){
-            parrallel {
+            parallel {
                 stage('Deploy') {
                 agent any
                 steps {
@@ -32,7 +32,7 @@ pipeline {
                                 junit 'target/surefire-reports/*.xml'
                             }
                         }
-                    
+
                 }
             }
         }
